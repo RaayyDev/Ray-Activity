@@ -3,8 +3,9 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'discord.gg/snipyshop'
-description 'discord.gg/snipyshop'
+author 'Ray Dev'
+discord '@28770'
+description 'discord.gg/oui'
 
 client_script 'client.lua'
 
@@ -14,6 +15,3 @@ server_scripts {
 }
 
 shared_script '@es_extended/imports.lua'
--- shared_script '@snipyshop/snipy.lua'
--- shared_script '@snipyshop/snipy.lua'
--- shared_script '@snipyshop/snipy.lua'
