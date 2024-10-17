@@ -4,7 +4,7 @@ local playersDataActuall = {}
 
 
 MySQL.ready(function()
-    print('discord.gg/mrxstudio')
+    print('discord.gg/oui')
     MySQL.Async.fetchAll('SELECT * FROM activity', {}, function(result)	
         for i=1, #result, 1 do
             playersData[result[i].identifier] = result[i].time
@@ -47,13 +47,13 @@ function dropPlayer(source, reason)
         MySQL.Async.execute('UPDATE activity SET time = @time, last_logout = @last_logout WHERE identifier = @identifier',
             {['time'] = totalTime, ['last_logout'] = lastLogoutTimestamp, ['identifier'] = identifier},
             function(affectedRows)
-                print('[mrx studio] Info updated on logout')
+                print('[Ray-Activity] Info updated on logout')
             end
         )
 
         playersData[identifier] = totalTime
     else
-        print('^1[mrx studio] Error:^0 Can not save info player')
+        print('^1[Ray-Activity] Error:^0 Can not save info player')
     end
 end
 
@@ -63,8 +63,8 @@ AddEventHandler('playerDropped', function(reason)
 end)
 
 
-RegisterNetEvent('mrx_connection')
-AddEventHandler('mrx_connection', function(playerName)
+RegisterNetEvent('Ray-Activity_connect')
+AddEventHandler('Ray-Activity_connect', function(playerName)
 	local _source = source	
     local _playerName = playerName
     local identifier = GetPlayerIdentifiers(_source)[1]
@@ -79,7 +79,7 @@ AddEventHandler('mrx_connection', function(playerName)
         MySQL.Async.execute('UPDATE activity SET login = login + 1 WHERE identifier = @identifier',
             {['identifier'] = identifier},
             function(affectedRows)
-                print('^1[mrx studio] Info saved')
+                print('^1[Ray-Activity] Info saved')
             end
         )
     else        
@@ -88,7 +88,7 @@ AddEventHandler('mrx_connection', function(playerName)
         MySQL.Async.execute('INSERT INTO activity (identifier, time, login, discord) VALUES (@identifier, @time, @login, @discord)',
             { ['identifier'] = identifier, ['time'] = 0, ['login'] = 0, ['discord'] = discord},
             function(affectedRows)
-                print('^1[mrx studio] Info saved')
+                print('^1[Ray-Activity] Info saved')
             end
         )
     end
