@@ -1,2 +1,2 @@
-# mrx_activity
+# Ray-Activity
 An activity log in SQL of time played of a user
